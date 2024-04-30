@@ -1,8 +1,4 @@
 
-<head>
-	<title>Slide Navbar</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
 <body>
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
@@ -14,7 +10,7 @@
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="pswd" placeholder="Password" required="">
 					<button>Sign up</button>
-					<a href="login">	<h6 id="myHeading">Do You have account Sign in </h6></a>
+					<a [routerLink]="['/login']">	<h6 id="myHeading">Do You have account Sign in </h6></a>
 
 				</form>
 			</div>
