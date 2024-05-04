@@ -5,12 +5,15 @@ import { RegistrationComponent } from './Pages/registration/registration.compone
 import { HeaderComponent } from './Pages/header/header.component';
 import { FooterComponent } from './Pages/footer/footer.component';
 import { HomeComponent } from './Pages/home/home.component';
+import {UploadComponent} from "./Pages/upload/upload.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch:'full'},
   {path: 'home', component: HomeComponent, title: 'Home'},
   {path:'header', component: HeaderComponent, title: 'header'},
   {path: 'login', component: LoginComponent, title: 'Login'},
+  {path: 'upload', component: UploadComponent, title: 'upload'},
+
 
   {path:'registration', component: RegistrationComponent, title: 'Registration'},
   {path:'footer', component: FooterComponent, title: 'Footer'},
