@@ -11,6 +11,9 @@ import { RegistrationComponent } from './Pages/registration/registration.compone
 import { UpdateComponent } from './Pages/update/update.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { UploadComponent } from './Pages/upload/upload.component';
+import { HeaderAfterLoginComponent } from './Pages/header-after-login/header-after-login.component';
+import { PlaylistComponent } from './Pages/playlist/playlist.component';
+import { WatchVideoComponent } from './Pages/watch-video/watch-video.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { UploadComponent } from './Pages/upload/upload.component';
     UpdateComponent,
     HomeComponent,
     UploadComponent,
+    HeaderAfterLoginComponent,
+    PlaylistComponent,
+    WatchVideoComponent,
 
   ],
   imports: [
