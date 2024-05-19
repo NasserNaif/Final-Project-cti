@@ -1,0 +1,24 @@
+spring:
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=project;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: Aa123456
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: false
+    database: sql_server
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
