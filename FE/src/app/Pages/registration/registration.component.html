@@ -1,20 +1,26 @@
+<div class="body1">
 
-<body>
-	<div class="main">
-		<input type="checkbox" id="chk" aria-hidden="true">
-
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Sign up</button>
-					<a [routerLink]="['/login']">	<h6 id="myHeading">Do You have account Sign in </h6></a>
-
-				</form>
-			</div>
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
 
 
-	</div>
-</body>
+
+    <div class="login">
+      <form [formGroup]="form">
+        <label for="chk" aria-hidden="true">Register</label>
+        <input type="text" formControlName="firstName" name="pswd" placeholder="First name" required="">
+        <input type="text" formControlName="lastName" name="pswd" placeholder="Last name" required="">
+        <input type="text" formControlName="username" name="pswd" placeholder="username" required="">
+        <input type="email" formControlName="email" name="email" placeholder="Email" required="">
+        <input type="password" formControlName="password" name="pswd" placeholder="Password" required="">
+        <button (click)="logIn()">Login</button>
+
+
+
+
+        <a [routerLink]="['/login']">	<h6 id="myHeading">You already have account Log In </h6></a>
+      </form>
+    </div>
+  </div>
+</div>
+

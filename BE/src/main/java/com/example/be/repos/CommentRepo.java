@@ -1,10 +1,12 @@
 package com.example.be.repos;
 
 import com.example.be.models.Comment;
+import com.example.be.models.Lecture;
 import com.example.be.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -15,4 +17,6 @@ public interface CommentRepo extends JpaRepository<Comment,Integer> {
     boolean existsCommentByIdAndUser(Integer id,User user);
 
     void deleteCommentById(Integer integer);
+
+    List<Comment> findCommentsByLecture(Lecture lecture);
 }

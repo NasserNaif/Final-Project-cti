@@ -104,7 +104,7 @@ public class JwtService {
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
 
-        return (username.equals(userDetails.getUsername())) && isTokenExpired(token);
+        return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
     }
 
     private UserDto getUserDto(Claims claims) {
@@ -139,6 +139,7 @@ public class JwtService {
 
     public Integer getUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
         if (authentication != null && authentication instanceof JwtCustomerAuthenticationToken) {
             return ((JwtCustomerAuthenticationToken) authentication).getUserDto().getId();
         } else {

@@ -6,7 +6,9 @@ import com.example.be.dto.CourseDto;
 import com.example.be.mapper.CourseMapper;
 import com.example.be.models.Course;
 
+import com.example.be.models.CourseImage;
 import com.example.be.repos.CourseRepo;
+import com.example.be.repos.ImageRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ public class CourseService {
     private final CourseRepo courseRepo;
     private final CourseMapper courseMapper;
     private final JwtService jwtService;
+    private final ImageRepo imageRepo;
 
     private static final String NOT_FOUND_MESSAGE = "not found";
 
@@ -37,8 +40,22 @@ public class CourseService {
     @PreAuthorize("hasAuthority('ADMIN')")
     public void  addCourse(CourseDto courseDto){
 
-        courseDto.setAddedBy(jwtService.getUserId());
-        courseRepo.save(courseMapper.toEntity(courseDto));
+
+        Course course = courseMapper.toEntity(courseDto);
+        course.setAddedBy(3);
+        if (courseDto.getCourseImage() != null){
+            CourseImage courseImage = new CourseImage();
+
+            courseImage.setBase64(courseDto.getCourseImage().getBase64());
+            courseImage.setFileName(courseDto.getCourseImage().getFileName());
+            courseImage.setCourse(course);
+            course.setCourseImage(courseImage);
+        }
+
+        courseRepo.save(course);
+
+
+
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")

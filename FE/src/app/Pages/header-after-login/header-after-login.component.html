@@ -1,29 +1,43 @@
-<header>
-  <div class="header">
+<div class="formbold-main-wrapper">
 
-    <a href="#" class="logo"><img src="/assets/images/owl.webp" alt="image"></a>
-    <div class="header-right">
+  <div class="formbold-form-wrapper">
+    <form [formGroup]="form">
+      <div class="formbold-mb-5">
+        <label  class="formbold-form-label">Comment Title</label>
 
+        <input formControlName="title"  class="formbold-form-input">
+      </div>
+      <div class="formbold-mb-5">
+        <label  class="formbold-form-label">Resource URL</label>
 
-
-
-
-
-      <a class="active" [routerLink]="['/']">Home</a>
-
-      <a [routerLink]="['/upload']">Upload</a>
-
-      <a [routerLink]="['/login']">Logout</a>
+        <input formControlName="url"  class="formbold-form-input">
+      </div>
 
 
 
-    </div>
 
+      <div class="mb-6 pt-4">
+        <label class="formbold-form-label formbold-form-label-2">Upload file</label>
+
+        <div class="formbold-mb-5 formbold-file-input">
+          <input  class="w-25 h-25 bg-primary" (change)="onAttachmentDoc($event,'attachmant')" formControlName="attachmant" type="file" name="file" id="file" />
+          <label for="file">
+            <div>
+              <span class="formbold-drop-file"> Drop files here </span>
+              <span class="formbold-or"> Or </span>
+              <span class="formbold-browse"> Browse </span>
+            </div>
+          </label>
+        </div>
+
+
+
+
+      </div>
+
+      <div>
+        <button (click)="save()" class="formbold-btn w-full">Save</button>
+      </div>
+    </form>
   </div>
-
-
-
-</header>
-
-
-
+</div>

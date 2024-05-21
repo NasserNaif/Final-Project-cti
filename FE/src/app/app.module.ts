@@ -14,6 +14,11 @@ import { UploadComponent } from './Pages/upload/upload.component';
 import { HeaderAfterLoginComponent } from './Pages/header-after-login/header-after-login.component';
 import { PlaylistComponent } from './Pages/playlist/playlist.component';
 import { WatchVideoComponent } from './Pages/watch-video/watch-video.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { HttpClientModule} from '@angular/common/http';
+import { AuthInterceptorProvider} from "./Pages/interceptors/auth.interceptor";
+import {CommentComponent} from "./Pages/comment/comment.component";
+
 
 @NgModule({
   declarations: [
@@ -28,15 +33,22 @@ import { WatchVideoComponent } from './Pages/watch-video/watch-video.component';
     HeaderAfterLoginComponent,
     PlaylistComponent,
     WatchVideoComponent,
+    CommentComponent
+
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterOutlet,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterOutlet,
+        ReactiveFormsModule,
+      HttpClientModule
 
+
+    ],
+  providers: [
+    AuthInterceptorProvider
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

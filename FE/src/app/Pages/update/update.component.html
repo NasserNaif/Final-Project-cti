@@ -1,13 +1,27 @@
-<p>update works!</p>
-<br><br><br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
+<div class="formbold-main-wrapper">
+
+  <div class="formbold-form-wrapper">
+    <form [formGroup]="form">
+      <div class="formbold-mb-5">
+        <label  class="formbold-form-label">Lecture Name</label>
+
+        <input formControlName="name"  class="formbold-form-input">
+      </div>
+
+      <div class="formbold-mb-5">
+        <label  class="formbold-form-label">Lecture Number</label>
+
+        <input formControlName="number" class="formbold-form-input">
+      </div>
+
+
+
+
+
+
+      <div>
+        <button (click)="save()" class="formbold-btn w-full">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

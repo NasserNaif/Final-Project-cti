@@ -7,21 +7,23 @@
       </div>
       <input type="text" (input)="searchCourse($event)" class="form-control bg-secondary-subtle" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
     </div>
-    <button type="button" *ngIf="this.isAdmin" class="btn btn-primary btn-lg p-2" (click)="addCourse()">Add Lecture</button>
+    <button type="button"  class="btn btn-primary btn-lg p-2" (click)="addCourse()">Add Comment</button>
 
   </div>
 
   <div class="d-flex flex-column justify-content-center align-items-center">
 
-    <div class="d-flex w-75 justify-content-between align-items-center" *ngFor="let elm of courses">
+    <div class="d-flex w-100 justify-content-around align-items-center my-4" *ngFor="let elm of courses">
 
       <div>
-        <p class="fs-6">{{'Lecture : ' + elm.number}}</p>
-        <p class="fs-4">{{elm.name}}</p>
+        <p class="fs-6">{{elm.title}}</p>
+        <p class="fs-4"><a class="" href="{{elm.url != null ? elm.url : ''}}" target="_blank">See resource</a></p>
       </div>
 
+      <button type="button"  class="btn btn-primary btn-lg p-2" (click)="download(elm.attachmant)" *ngIf="elm.attachmant != null">download</button>
 
-      <a [routerLink]="['/comment/'+elm.id]" class="inline-btn fs`">view Comments</a>
+
+<!--      <a [routerLink]="['/comment/'+elm.id]" class="inline-btn fs`"></a>-->
     </div>
 
   </div>

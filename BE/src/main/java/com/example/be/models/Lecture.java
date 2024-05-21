@@ -21,11 +21,15 @@ public class Lecture {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private Integer number;
+
     @ManyToOne
     @JsonIgnore
     @JoinColumn
     private Course course;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lecture")
+    @JsonIgnore
     private Set<Comment> comments;
 }

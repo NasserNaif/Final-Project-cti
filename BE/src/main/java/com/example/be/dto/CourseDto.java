@@ -1,6 +1,7 @@
 package com.example.be.dto;
 
 
+import com.example.be.models.CourseImage;
 import com.example.be.models.Lecture;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -20,6 +21,8 @@ public class CourseDto {
 
     @NotEmpty
     private String name;
+    private String teacher;
+
 
 
     @NotEmpty
@@ -30,5 +33,8 @@ public class CourseDto {
 
     private Integer addedBy;
 
+
     private Set<Lecture> lectures;
+
+    private CourseImage courseImage;
 }

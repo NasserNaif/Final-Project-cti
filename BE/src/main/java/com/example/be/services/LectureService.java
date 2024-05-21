@@ -45,14 +45,17 @@ public class LectureService {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     public void addLecture(Integer id,Lecture lecture){
+        System.out.println(lecture.getName() + " -------");
+        System.out.println(lecture.getNumber() + " -------");
         Optional<Course> course = Optional.ofNullable(courseRepo.findCourseById(id).orElseThrow(() -> new ApiException(NOT_FOUND_COURSE)));
 
         if (course.isPresent()){
-            Lecture lecture1 = new Lecture(null, lecture.getName(), course.get(),null);
+            System.out.println("112233 "   + course.get().getName());
+            Lecture lecture1 = new Lecture(null, lecture.getName(), lecture.getNumber(), course.get(),null);
 
             lectureRepo.save(lecture1);
-        }
-        throw new ApiException(NOT_FOUND_COURSE);
+        }else
+            throw new ApiException(NOT_FOUND_COURSE);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")

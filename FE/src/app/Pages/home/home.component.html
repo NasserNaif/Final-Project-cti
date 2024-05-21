@@ -1,86 +1,36 @@
 <section class="courses">
+<div class="d-flex justify-content-between align-items-center">
+  <h1 class="fs-3">Courses</h1>
+  <div class="input-group w-50 input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text p-3" id="inputGroup-sizing-sm">Search</span>
+    </div>
+    <input type="text" (input)="searchCourse($event)" class="form-control bg-secondary-subtle" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+  <button type="button" *ngIf="this.isAdmin" class="btn btn-primary btn-lg p-2" (click)="addCourse()">Add Course</button>
 
-  <h1 class="heading">our courses</h1>
+</div>
 
   <div class="box-container">
 
-    <div class="box">
-      <div class="tutor">
-        <img src="/assets/images/girl.jpg" alt="">
-        <div class="info">
-          <h3>Sarah deo</h3>
-          <span>21-10-2022</span>
-        </div>
-      </div>
-      <div class="thumb">
-        <img src="/assets/images/css.png" alt="">
-        <span>10 videos</span>
-      </div>
-      <h3 class="title">complete CSS tutorial</h3>
-
-
-      <a [routerLink]="['/Playlist']" class="inline-btn">view playlist</a>
-    </div>
-
-    <div class="box">
+    <div class="box " *ngFor="let elm of courses">
       <div class="tutor">
         <img src="/assets/images/man.jpg" alt="">
         <div class="info">
-          <h3>john deo</h3>
-          <span>21-10-2022</span>
+          <h3>{{elm.teacher}}</h3>
+          <span>level : {{elm.level}}</span>
         </div>
       </div>
       <div class="thumb">
-        <img src="/assets/images/react.png" alt="">
-        <span>10 videos</span>
+        <img [src]="elm.courseImage != null ?'data:image/jpeg;base64,'+ elm.courseImage.base64 : '/assets/images/cti.jpg'" alt="">
+        <span>{{elm.lectures!.length + " lectures"}} </span>
       </div>
-      <h3 class="title">complete CSS tutorial</h3>
-      <a routerLink="/Playlist" class="inline-btn">view playlist</a>
+      <h3 class="title">{{elm.name}}</h3>
+
+
+      <a [routerLink]="['/Playlist/'+elm.id]" class="inline-btn">view Lectures</a>
     </div>
 
-
-    <div class="box-container">
-
-      <div class="box">
-        <div class="tutor">
-          <img src="/assets/images/girl.jpg" alt="">
-          <div class="info">
-            <h3>Sarah deo</h3>
-            <span>21-10-2022</span>
-          </div>
-        </div>
-        <div class="thumb">
-          <img src="/assets/images/css.png" alt="">
-          <span>10 videos</span>
-        </div>
-        <h3 class="title">complete CSS tutorial</h3>
-        <a routerLink="/Playlist" class="inline-btn">view playlist</a>
-      </div>
-
-
-
-    </div>
-
-    <div class="box-container">
-
-      <div class="box">
-        <div class="tutor">
-          <img src="/assets/images/girl.jpg" alt="">
-          <div class="info">
-            <h3>Sarah deo</h3>
-            <span>21-10-2022</span>
-          </div>
-        </div>
-        <div class="thumb">
-          <img src="/assets/images/css.png" alt="">
-          <span>10 videos</span>
-        </div>
-        <h3 class="title">complete CSS tutorial</h3>
-        <a routerLink="/Playlist" class="inline-btn">view playlist</a>
-      </div>
-
-    </div>
-
-</div>
+  </div>
 
 </section>

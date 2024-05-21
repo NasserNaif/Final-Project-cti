@@ -9,18 +9,22 @@ import {UploadComponent} from "./Pages/upload/upload.component";
 import {HeaderAfterLoginComponent} from "./Pages/header-after-login/header-after-login.component";
 import {PlaylistComponent} from "./Pages/playlist/playlist.component";
 import {WatchVideoComponent} from "./Pages/watch-video/watch-video.component";
+import {UpdateComponent} from "./Pages/update/update.component";
+import {CommentComponent} from "./Pages/comment/comment.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch:'full'},
   {path: 'home', component: HomeComponent, title: 'Home'},
 
   {path:'header', component: HeaderComponent, title: 'header'},
-  {path:'HeaderAfterLoginComponent', component: HeaderAfterLoginComponent, title: 'HeaderAfterLoginComponent'},
+  {path:'add-comment/:id', component: HeaderAfterLoginComponent, title: 'HeaderAfterLoginComponent'},
 
 
-  {path: 'Playlist', component: PlaylistComponent, title: 'Playlist'},
-  {path: 'watch-video', component: WatchVideoComponent, title: 'WatchVideo'},
+  {path: 'Playlist/:id', component: PlaylistComponent, title: 'Playlist'},
+  {path: 'comment/:id', component: CommentComponent, title: 'WatchVideo'},
+  {path: 'add-lecture/:id', component: UpdateComponent, title: 'Add lecture'},
 
+
+  {path: '', component: LoginComponent, title: 'Login'},
   {path: 'login', component: LoginComponent, title: 'Login'},
   {path: 'upload', component: UploadComponent, title: 'upload'},
   {path:'registration', component: RegistrationComponent, title: 'Registration'},

@@ -23,6 +23,8 @@ public class Course {
     @Column(nullable = false)
     private String number;
 
+    private String teacher;
+
     private Integer level;
 
     @Column(nullable = false)
@@ -31,4 +33,8 @@ public class Course {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
     private Set<Lecture> lectures;
 
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "course")
+    @JoinColumn(name = "image_id",referencedColumnName = "id")
+    private CourseImage courseImage;
 }

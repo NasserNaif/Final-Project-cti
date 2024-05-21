@@ -6,14 +6,13 @@
 
 
 			<div class="login">
-				<form>
+				<form [formGroup]="form">
 					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Login</button>
+					<input type="email" formControlName="username" name="email" placeholder="Email" required="">
+					<input type="password" formControlName="password" name="pswd" placeholder="Password" required="">
+					<button (click)="logIn()">Login</button>
 
 
-					<a [routerLink]="['/']">	<h6 id="myHeading">forget password ?</h6></a>
 
 
 					<a [routerLink]="['/registration']">	<h6 id="myHeading">You don't have account Sign up </h6></a>

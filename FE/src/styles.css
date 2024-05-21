@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+.invalid-input {
+  margin-top: 10px;
+  margin-right: 2px;
+  margin-left: 2px;
+  text-align: left;
+  color: rgba(253, 54, 95, 1);
+  font-size: 12px;
+}/* You can add global styles to this file, and also import other style files */

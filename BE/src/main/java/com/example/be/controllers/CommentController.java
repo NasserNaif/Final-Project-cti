@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/comment")
@@ -19,7 +19,7 @@ public class CommentController {
     private final CommentService commentService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Set<Comment>> getAllCourses(@PathVariable Integer id){
+    public ResponseEntity<List<Comment>> getAllCourses(@PathVariable Integer id){
         return ResponseEntity.ok().body(commentService.getAllComment(id));
     }
 

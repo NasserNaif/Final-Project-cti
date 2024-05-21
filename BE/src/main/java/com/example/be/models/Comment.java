@@ -34,10 +34,11 @@ public class Comment {
     private Lecture lecture;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn
+    @JsonIgnore
     private User user;
 
     @OneToOne(cascade = CascadeType.DETACH, mappedBy = "comment")
+    @JoinColumn(name = "file_id",referencedColumnName = "id")
     private Attachmant attachmant;
 }

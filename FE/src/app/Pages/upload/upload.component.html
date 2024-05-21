@@ -1,27 +1,35 @@
 <div class="formbold-main-wrapper">
 
   <div class="formbold-form-wrapper">
-    <form action="" method="POST">
+    <form [formGroup]="form">
       <div class="formbold-mb-5">
-        <label  class="formbold-form-label">: اكتب عنوان المحاضرة هنا</label>
+        <label  class="formbold-form-label">Course Name</label>
 
-          <input placeholder="محاضرة جافا" class="formbold-form-input">
+          <input formControlName="name"  class="formbold-form-input">
+      </div>
+      <div class="formbold-mb-5">
+        <label  class="formbold-form-label">Teacher Name</label>
 
+        <input formControlName="teacher"  class="formbold-form-input">
+      </div>
+      <div class="formbold-mb-5">
+        <label  class="formbold-form-label">Course Number</label>
 
+        <input formControlName="number" class="formbold-form-input">
+      </div>
+      <div class="formbold-mb-5">
+        <label  class="formbold-form-label">Level</label>
+
+        <input formControlName="level" class="formbold-form-input">
       </div>
 
-      <div class="formbold-mb-5">
 
-        <label  class="formbold-form-label">: وصف المحاضرة</label>
-        <textarea placeholder="سنتعلم في هذه المحاضرة عن الربط بين الصفحات" class="formbold-form-input" cols="73" rows="6"></textarea>
-
-      </div>
 
       <div class="mb-6 pt-4">
-        <label class="formbold-form-label formbold-form-label-2">رفع الملف</label>
+        <label class="formbold-form-label formbold-form-label-2">Upload Course Inage</label>
 
         <div class="formbold-mb-5 formbold-file-input">
-          <input type="file" name="file" id="file" />
+          <input accept="image/*" class="w-25 h-25 bg-primary" (change)="onAttachmentDoc($event,'courseImage')" formControlName="courseImage" type="file" name="file" id="file" />
           <label for="file">
             <div>
               <span class="formbold-drop-file"> Drop files here </span>
@@ -31,31 +39,13 @@
           </label>
         </div>
 
-        <div class="formbold-file-list formbold-mb-5">
-          <div class="formbold-file-item">
-            <span class="formbold-file-name"> java 101.MP4 </span>
-            <i class="fas fa-times"></i>
-
-
-          </div>
-        </div>
-
-        <div class="formbold-file-list formbold-mb-5">
-          <div class="formbold-file-item">
-            <span class="formbold-file-name"> java 101.MP4 </span>
-            <i class="fas fa-times"></i>
 
 
 
-          </div>
-          <div class="formbold-progress-bar">
-            <div class="formbold-progress"></div>
-          </div>
-        </div>
       </div>
 
       <div>
-        <button class="formbold-btn w-full">Send File</button>
+        <button (click)="save()" class="formbold-btn w-full">Save</button>
       </div>
     </form>
   </div>
